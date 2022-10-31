@@ -1,14 +1,12 @@
-export default function SingleCoffee(props) {
-
-    console.log("props here", props.name)
-
+export default function SingleCoffee({entireObject}) {
     return (
         <div className="menu-items__items">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/640px-A_small_cup_of_coffee.JPG"
+            <img src= {entireObject.image}
                 alt="" />
             <div>
-                <h3>{props.name}</h3>
-                <p>Black Coffee is as simple as it gets</p>
+                <h3>{entireObject.name}</h3>
+                <span>Price: {entireObject.price}</span>
+                <p>{entireObject.description}</p>
             </div>
         </div>
     )

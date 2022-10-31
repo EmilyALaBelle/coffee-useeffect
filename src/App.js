@@ -1,34 +1,36 @@
+import { useState, useEffect } from 'react'
 import './App.css';
 import SingleCoffee from './SingleCoffee';
 
 function App() {
+  const [data, setData] = useState([{ name: 'Colada', price: '40 cents' }])
+
+  useEffect(() => {
+    getCoffee()
+  }, [])
+
   const getCoffee = () => {
     fetch('https://api.sampleapis.com/coffee/hot')
       .then(responce => responce.json())
-      .then(data => console.log(data))
+      .then(data => setData(data))
       .catch((err) => { console.error(err) })
 
   }
+
+  console.log('my data', data)
+
   return (
     <div className="App">
       <main>
         <h1>Coffees by Sample API</h1>
         <button onClick={() => getCoffee()}>Get Me Coffee</button>
         <div className='menu-items'>
-          <SingleCoffee name='Black American Coffee'/>
-          <SingleCoffee name='Cafe Cubano'/>
-          <SingleCoffee/>
-          <SingleCoffee/>
-          <SingleCoffee/>
-          <SingleCoffee/>
-          {/* <div className="menu-items__items">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/640px-A_small_cup_of_coffee.JPG"
-              alt="" />
-            <div>
-              <h3>1. Black American Coffee</h3>
-              <p>Black Coffee is as simple as it gets</p>
-            </div>
-          </div> */}
+          {data.map(item => {
+            console.log('each item', item)
+            return <SingleCoffee entireObject={item} />
+          })}
+
+
         </div>
       </main>
     </div>
