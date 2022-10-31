@@ -1,12 +1,17 @@
-export default function SingleCoffee({entireObject}) {
+import { useState } from "react"
+
+export default function SingleCoffee({ entireObject }) {
+    const [favorite, setFavorite] = useState(false)
+
     return (
-        <div className="menu-items__items">
-            <img src= {entireObject.image}
+        <div className="menu-items__items" style={{ backgroundColor: favorite ? 'red' : '' }}>
+            <img src={entireObject.image}
                 alt="" />
             <div>
-                <h3>{entireObject.name}</h3>
-                <span>Price: {entireObject.price}</span>
+                <h3>{entireObject.title}</h3>
+                <span>{entireObject.price}</span>
                 <p>{entireObject.description}</p>
+                <button onClick={() => setFavorite(true)}>Favorite</button>
             </div>
         </div>
     )

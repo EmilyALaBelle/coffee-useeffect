@@ -5,6 +5,8 @@ import SingleCoffee from './SingleCoffee';
 function App() {
   const [data, setData] = useState([{ name: 'Colada', price: '40 cents' }])
 
+
+  
   useEffect(() => {
     getCoffee()
   }, [])
