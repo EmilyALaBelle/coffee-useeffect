@@ -1,4 +1,5 @@
 import './App.css';
+import SingleCoffee from './SingleCoffee';
 
 function App() {
   const getCoffee = () => {
@@ -14,14 +15,20 @@ function App() {
         <h1>Coffees by Sample API</h1>
         <button onClick={() => getCoffee()}>Get Me Coffee</button>
         <div className='menu-items'>
-          <div className="menu-items__items">
+          <SingleCoffee name='Black American Coffee'/>
+          <SingleCoffee name='Cafe Cubano'/>
+          <SingleCoffee/>
+          <SingleCoffee/>
+          <SingleCoffee/>
+          <SingleCoffee/>
+          {/* <div className="menu-items__items">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/640px-A_small_cup_of_coffee.JPG"
               alt="" />
             <div>
               <h3>1. Black American Coffee</h3>
               <p>Black Coffee is as simple as it gets</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
     </div>
